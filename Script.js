@@ -57,11 +57,6 @@ function le_niveau()
     }
 };
 
-
-let Texte = "Bienvenue dans le jeu";
-let Suite = 0;
-
-
 function AfficheTexte(MonId,Txt)
 {
     document.getElementById(MonId).innerHTML = Txt;
@@ -84,13 +79,15 @@ function BtnValeur (Btn,Valeur){
     document.getElementById(Btn).value = Valeur;
 }
 
+let Texte = "Bienvenue dans le jeu";
+let Suite = 0;
 
-let Nero = false;
+let Nero = 0;
 let Basket = false;
 let Roi = false;
 let Cour = false;
 let choix;
-
+let Carte;
 
 function MonHistoire()
 {
@@ -102,17 +99,21 @@ function MonHistoire()
         break;
 
         case 1:
-            Texte = "L'histoire commence vous vous réveiller. Sans perdre un instant vous enfiler des jambieres, pris vos gantelets,  votre épée et décider de sortir de votre chambre";
+            Texte = "Un beau matin alors que le chant du coq retenti. Un curieux étranger se présente dans l'enceinte du chateau. ";
         break;
 
         case 2:
+            Texte = "L'histoire commence vous vous réveiller. Sans perdre un instant vous enfiler des jambieres, pris vos gantelets,  votre épée et décider de sortir de votre chambre";
+        break;
+
+        case 3:
             Texte = "Ou voulez vous allez ?";
             VisibleCaché("btnChoix","btnSuite");
             BtnValeur("btnChoix1","Aller dans la cour");
             BtnValeur("btnChoix2","Aller voir le Roi");
         break;
 
-        case 3:
+        case 4:
             VisibleCaché("btnSuite","btnChoix")
             if (choix == 1)
             {
@@ -126,13 +127,13 @@ function MonHistoire()
             }
         break;
 
-        case 4:
+        case 5:
             if (Cour == true)
             {
                 Texte = "Vous arrivez devants les cochons, un cochon nommé Nero viens vers vous. Que voulez-vous faire";
                 VisibleCaché("btnChoix","btnSuite");
                 BtnValeur("btnChoix1","Lui donner à manger");
-                BtnValeur("btnChoix2","Voler ça nourriture");
+                BtnValeur("btnChoix2","Voler sa nourriture");
             }
 
             if (Roi == true)
@@ -145,18 +146,20 @@ function MonHistoire()
 
         break;
 
-        case 5:
+        case 6:
         VisibleCaché("btnSuite","btnChoix")
         if (Cour == true)
         {
             if (choix == 1)
             {
                 Texte = "Nero vous remercie et pars"
+                Nero=1;
             }
 
             if (choix == 2)
             {
                 Texte = "Nero pars trés énerver"
+                Nero=3;
             }
         }
 
@@ -165,16 +168,31 @@ function MonHistoire()
             if (choix == 1)
             {
                 Texte = "Le vagabond"
+
             }
 
             if (choix == 2)
             {
-                Texte = "Il était une fois"
+                Texte = "Il était une fois "
+                Carte=true;
             }
         }
+        break;
+
+        case 7:
+
+        Texte = "Quelque chose ce passe dans la cour, en vous y rendant de mystèrieux combattant vous attaque"
+        BtnValeur("btnSuite","Combattre");
 
         break;
 
+        case 8:
+
+        // Combat();
+        BtnValeur("btnSuite","Continuer");
+        
+
+        break;
         // case :
 
         // break;
