@@ -1,29 +1,18 @@
 class Personnage
 {
-    constructor (nom, hp, defense, force, xp, niveau)
+    constructor (nom, hp, defense, force)
     {
         this.nom = nom;
         this.hp = hp;
         this.defense = defense;
         this.force = force;
-        this.xp = xp;
-        this.niveau = niveau;
     };
     
 };
 
-class Aenor extends Personnage
-{
-    constructor ()
-    {
-        super (nom, hp, defense, force, niveau);
-    };
-    nom = "Aenor";
-    hp = 10;
-    defense = 10;
-    force = 10;
-    niveau = 1;
-};
+const Heros = new Personnage("Aenor", 15,10,10);
+
+console.log(Heros.hp);
 
 class Barbarus extends Personnage{
 
@@ -81,6 +70,7 @@ function BtnValeur (Btn,Valeur){
 
 let Texte = "Bienvenue dans le jeu";
 let Suite = 0;
+
 
 let Nero = 0;
 let Basket = false;
@@ -167,13 +157,13 @@ function MonHistoire()
         {
             if (choix == 1)
             {
-                Texte = "Le vagabond"
+                Texte = "Le roi vous explique que le vagabond à l'aire étrange et qu'il va donc s'assurer que tout ce passe bien dans la cour."
 
             }
 
             if (choix == 2)
             {
-                Texte = "Il était une fois "
+                Texte = "Le roi vous compte l'histoire de la légende et vous donne le livre sacré. Qui est transmit de générations en générations"
                 Carte=true;
             }
         }
@@ -189,10 +179,37 @@ function MonHistoire()
         case 8:
 
         // Combat();
+        Texte = "Félicitation vous avez reussi le combat et remporté"
+
         BtnValeur("btnSuite","Continuer");
-        
 
         break;
+
+        case 9:
+        Texte = "Le vagabond ce dévoile. Il dit se nommer Corvus et exige que le roi vienne face à lui. Le roi le rejoignit alors dans la cour."
+
+        VisibleCaché("btnChoix","btnSuite");
+        BtnValeur("btnChoix1","Laisser le roi face à Corvus");
+        BtnValeur("btnChoix2","Aller aider le Roi");
+
+
+        break;
+
+        case 8 :
+        if (choix == 1)
+        {
+            Texte = "Corvus est trop fort et le roi succombe. Il se proclame alors etre le nouveau roi et que quiconque s'opposerait à lui serais éxécuter"
+
+        }
+
+        if (choix == 2)
+        {
+            // Combat();
+            Texte = ""
+    
+        }
+        break;
+
         // case :
 
         // break;
@@ -203,3 +220,12 @@ function MonHistoire()
 }
 
 
+
+// function Combat()
+// {
+// AfficheTexte()
+
+
+
+
+// }
