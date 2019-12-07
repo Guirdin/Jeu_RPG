@@ -12,8 +12,6 @@ class Personnage
 
 const Heros = new Personnage("Aenor", 15,10,10);
 
-console.log(Heros.hp);
-
 class Barbarus extends Personnage{
 
     constructor ()
@@ -38,13 +36,12 @@ class Grizius extends Personnage{
     force = 1000;
 };
 
-function le_niveau()
+function interfaceHeros()
 {
-    if(xp >= 100)
-    {
-        niveau++;
-    }
-};
+    AfficheTexte("VieHeros",Heros.hp);
+    AfficheTexte("DefHeros",Heros.defense);
+    AfficheTexte("ForceHeros",Heros.force);
+}
 
 function AfficheTexte(MonId,Txt)
 {
@@ -78,6 +75,7 @@ let Roi = false;
 let Cour = false;
 let choix;
 let Carte;
+let Victoire =false;
 
 function MonHistoire()
 {
@@ -109,6 +107,9 @@ function MonHistoire()
             {
                 Texte = "En allant dans la cour vous vous dirrigez vers les cochons";
                 Cour = true;
+                Heros.hp = Heros.hp + 2;
+                console.log(Heros.hp);
+                interfaceHeros();
             }
             if (choix == 2)
             {
@@ -176,16 +177,20 @@ function MonHistoire()
 
         break;
 
-        case 8:
+        case 9:
 
-        // Combat();
-        Texte = "Félicitation vous avez reussi le combat et remporté"
+        Combat();
 
-        BtnValeur("btnSuite","Continuer");
+        if (Victoire == true){
+            Texte = "Félicitation vous avez reussi le combat et remporté"
+
+            BtnValeur("btnSuite","Continuer");
+        } 
+        
 
         break;
 
-        case 9:
+        case 10:
         Texte = "Le vagabond ce dévoile. Il dit se nommer Corvus et exige que le roi vienne face à lui. Le roi le rejoignit alors dans la cour."
 
         VisibleCaché("btnChoix","btnSuite");
@@ -195,7 +200,7 @@ function MonHistoire()
 
         break;
 
-        case 8 :
+        case 11:
         if (choix == 1)
         {
             Texte = "Corvus est trop fort et le roi succombe. Il se proclame alors etre le nouveau roi et que quiconque s'opposerait à lui serais éxécuter"
@@ -221,11 +226,13 @@ function MonHistoire()
 
 
 
-// function Combat()
-// {
-// AfficheTexte()
+function Combat()
+{ 
+
+    VisibleCaché()
+    AfficheTexte("VieHeros",Heros.hp);
 
 
 
 
-// }
+}
