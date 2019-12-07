@@ -26,10 +26,16 @@
             <br> Défense: <strong id="DefHeros" ></strong>
             <br> Force: <strong id="ForceHeros" ></strong>
         </p>
-        
+
         <form style="visibility:hidden">
-            <input id="btnAttaque" onclick="" type="button" value="Attaquer">
+            <input id="btnAttaque" onclick="Attaque();" type="button" value="Attaquer">
         </form>
+
+        <p style="visibility:hidden" id="Ennemi"><strong id="NomEnnemi" ></strong> <br>
+            <br> Vie: <strong id="VieEnnemi" ></strong> 
+            <br> Défense: <strong id="DefEnnemi" ></strong>
+            <br> Force: <strong id="ForceEnnemi" ></strong>
+        </p>
 
 
     </Body>
@@ -37,6 +43,7 @@
     <Script>
 
         interfaceHeros();
+        interfaceEnnemi();
 
     </Script>
 

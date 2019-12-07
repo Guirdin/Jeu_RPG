@@ -1,3 +1,27 @@
+// class Grizius extends Personnage{
+
+//     constructor ()
+//     {
+//         super (nom, hp, defense, force);
+//     }
+//     nom = "Grizius";
+//     hp = 1000;
+//     defense = 1000;
+//     force = 1000;
+// };
+
+// class Barbarus extends Personnage{
+
+//     constructor ()
+//     {
+//         super (nom, hp, defense, force);
+//     };
+//     nom = "Barbarus";
+//     hp = 1000;
+//     defense = 1000;
+//     force = 1000;
+// };
+
 class Personnage
 {
     constructor (nom, hp, defense, force)
@@ -10,37 +34,60 @@ class Personnage
     
 };
 
-const Heros = new Personnage("Aenor", 15,10,10);
+const Heros = new Personnage("AENOR", 15,10,10);
 
-class Barbarus extends Personnage{
+const Guerrier = new Personnage("GUERRIER",8,5,5)
 
-    constructor ()
-    {
-        super (nom, hp, defense, force);
-    };
-    nom = "Barbarus";
-    hp = 1000;
-    defense = 1000;
-    force = 1000;
-};
+const Vagabond = new Personnage("VAGABOND",10,7,3)
 
-class Grizius extends Personnage{
-
-    constructor ()
-    {
-        super (nom, hp, defense, force);
-    }
-    nom = "Grizius";
-    hp = 1000;
-    defense = 1000;
-    force = 1000;
-};
 
 function interfaceHeros()
 {
     AfficheTexte("VieHeros",Heros.hp);
     AfficheTexte("DefHeros",Heros.defense);
     AfficheTexte("ForceHeros",Heros.force);
+}
+
+const Ennemi = Guerrier;
+
+function Combat()
+{ 
+
+    VisibleCaché()
+
+}
+
+function Degat()
+{   
+    if (Heros.force < Ennemi.defense)
+    {
+        DegatHeros = 1;
+    }
+    if (Ennemi.force < Heros.defense)
+    {
+        DegatEnnemi = 1;
+    }
+
+    Ennemi.hp = Ennemi.hp - DegatHeros;
+    Heros.hp = Heros.hp - DegatEnnemi;
+}
+
+function Attaque()
+{
+    
+    Degat();
+
+    interfaceHeros();
+    interfaceEnnemi();
+
+}
+
+function interfaceEnnemi()
+{
+    AfficheTexte("NomEnnemi",Ennemi.nom);    
+    AfficheTexte("VieEnnemi",Ennemi.hp);
+    AfficheTexte("DefEnnemi",Ennemi.defense);
+    AfficheTexte("ForceEnnemi",Ennemi.force);
 }
 
 function AfficheTexte(MonId,Txt)
@@ -68,6 +115,8 @@ function BtnValeur (Btn,Valeur){
 let Texte = "Bienvenue dans le jeu";
 let Suite = 0;
 
+let DegatHeros = Heros.force - Ennemi.defense;
+let DegatEnnemi = Ennemi.force - Heros.defense;
 
 let Nero = 0;
 let Basket = false;
@@ -108,7 +157,6 @@ function MonHistoire()
                 Texte = "En allant dans la cour vous vous dirrigez vers les cochons";
                 Cour = true;
                 Heros.hp = Heros.hp + 2;
-                console.log(Heros.hp);
                 interfaceHeros();
             }
             if (choix == 2)
@@ -225,14 +273,3 @@ function MonHistoire()
 }
 
 
-
-function Combat()
-{ 
-
-    VisibleCaché()
-    AfficheTexte("VieHeros",Heros.hp);
-
-
-
-
-}
