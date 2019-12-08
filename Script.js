@@ -48,47 +48,8 @@ function interfaceHeros()
     AfficheTexte("ForceHeros",Heros.force);
 }
 
-const Ennemi = Guerrier;
+let Ennemi = Guerrier;
 
-function Combat()
-{ 
-
-    VisibleCaché()
-
-}
-
-function Degat()
-{   
-    if (Heros.force < Ennemi.defense)
-    {
-        DegatHeros = 1;
-    }
-    if (Ennemi.force < Heros.defense)
-    {
-        DegatEnnemi = 1;
-    }
-
-    Ennemi.hp = Ennemi.hp - DegatHeros;
-    Heros.hp = Heros.hp - DegatEnnemi;
-}
-
-function Attaque()
-{
-    
-    Degat();
-
-    interfaceHeros();
-    interfaceEnnemi();
-
-}
-
-function interfaceEnnemi()
-{
-    AfficheTexte("NomEnnemi",Ennemi.nom);    
-    AfficheTexte("VieEnnemi",Ennemi.hp);
-    AfficheTexte("DefEnnemi",Ennemi.defense);
-    AfficheTexte("ForceEnnemi",Ennemi.force);
-}
 
 function AfficheTexte(MonId,Txt)
 {
@@ -222,23 +183,17 @@ function MonHistoire()
 
         Texte = "Quelque chose ce passe dans la cour, en vous y rendant de mystèrieux combattant vous attaque"
         BtnValeur("btnSuite","Combattre");
+        
+        break;
+
+        case 8:
+        Ennemi = Vagabond
+        interfaceEnnemi();
+        Combat();
 
         break;
 
         case 9:
-
-        Combat();
-
-        if (Victoire == true){
-            Texte = "Félicitation vous avez reussi le combat et remporté"
-
-            BtnValeur("btnSuite","Continuer");
-        } 
-        
-
-        break;
-
-        case 10:
         Texte = "Le vagabond ce dévoile. Il dit se nommer Corvus et exige que le roi vienne face à lui. Le roi le rejoignit alors dans la cour."
 
         VisibleCaché("btnChoix","btnSuite");
@@ -248,7 +203,7 @@ function MonHistoire()
 
         break;
 
-        case 11:
+        case 10:
         if (choix == 1)
         {
             Texte = "Corvus est trop fort et le roi succombe. Il se proclame alors etre le nouveau roi et que quiconque s'opposerait à lui serais éxécuter"
@@ -273,3 +228,54 @@ function MonHistoire()
 }
 
 
+function Degat()
+{   
+    if (Heros.force < Ennemi.defense)
+    {
+        DegatHeros = 1;
+    }
+    if (Ennemi.force < Heros.defense)
+    {
+        DegatEnnemi = 1;
+    }
+
+    Ennemi.hp = Ennemi.hp - DegatHeros;
+    Heros.hp = Heros.hp - DegatEnnemi;
+}
+
+function Attaque()
+{
+    
+    Degat();
+
+    interfaceHeros();
+    interfaceEnnemi();
+
+    if (Ennemi.hp <= 0)
+    {
+        VisibleCaché("btnSuite","btnAttaque");
+        BtnValeur("btnSuite","Continuer")
+        Texte = "Félicitation vous avez reussi le combat et remporté";
+        AfficheTexte("Histoire",Texte);
+        Ennemi.hp = 0;
+        interfaceEnnemi();
+    }
+    
+
+}
+
+function interfaceEnnemi()
+{
+    AfficheTexte("NomEnnemi",Ennemi.nom);    
+    AfficheTexte("VieEnnemi",Ennemi.hp);
+    AfficheTexte("DefEnnemi",Ennemi.defense);
+    AfficheTexte("ForceEnnemi",Ennemi.force);
+}
+
+function Combat()
+{ 
+
+    VisibleCaché("btnAttaque","btnSuite");
+    Visible("Ennemi");
+
+}
