@@ -1,3 +1,20 @@
+let Texte = "Bienvenue dans le jeu";
+let Suite = 0;
+
+let DegatHeros;
+let DegatEnnemi;
+
+let Nero = 0;
+let Basket_Basket = false;
+let Explosion = false;
+let Roi = false;
+let Cour = false;
+let Grotte = false;
+let Montagne = false;
+let choix;
+let Livre_Legendaire = false;
+let Victoire =false;
+
 class Personnage
 {
     constructor (nom, hp, defense, force)
@@ -66,24 +83,6 @@ function BtnValeur (Btn,Valeur){
     document.getElementById(Btn).value = Valeur;
 }
 
-let Texte = "Bienvenue dans le jeu";
-let Suite = 0;
-
-let DegatHeros;
-let DegatEnnemi;
-
-let Nero = 0;
-let Basket_Basket = false;
-let Explosion = false;
-let Roi = false;
-let Cour = false;
-let Grotte = false;
-let Montagne = false;
-let choix;
-let Livre_Legendaire = false;
-let Victoire =false;
-
-
 function Degat()
 {   
     if (Heros.force <= Ennemi.defense)
@@ -137,33 +136,25 @@ function Attaque()
         }
         else
         {
-            Cache("btnAttaque");
-            Cache("btnSuite");
-            Visible("btnReco");
             Texte = "Vous avez perdu, voulez-vous recommencer ?";
             AfficheTexte("Histoire",Texte);
         }
-
+        Cache("btnAttaque");
+        Cache("btnSuite");
+        Visible("btnReco");
         Heros.hp = 0;
         interfaceHeros();
     }
 }
 
-function Combat()
-{ 
-
-    VisibleCache("btnAttaque","btnSuite");
-    Visible("Ennemi");
-
-}
-
 function LancerCombat(cible)
 {
+    VisibleCache("btnAttaque","btnSuite");
+    Visible("Ennemi");
     Cache("btnSuite");
     Cache("btnChoix");
     Ennemi = cible;
     interfaceEnnemi();
-    Combat();
 }
 
 function Recommencer()
