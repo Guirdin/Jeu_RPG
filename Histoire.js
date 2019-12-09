@@ -311,6 +311,10 @@ function MonHistoire()
                 LancerCombat(Basket);
             }
         }
+        if (Montagne == true)
+        {
+            Texte = "Vous continuez votre ascension mais l'épuisement ce fait sentir. Vous commencez à perdre connaissance";
+        }
 
 
         break;
@@ -322,11 +326,16 @@ function MonHistoire()
             Texte = '"Basket Basket" vous enmmène en haut de la montagne, pars les grotte. Arriver à la sortie, il vous assome par derrière';
         }
 
+        if (Montagne == true)
+        {
+            Texte = "Avant de perdre connaissance, vous appercevez une ombre gigantesque";
+        }
+
         break;
 
         case 24:
 
-        Texte = "Vous vous réveillez dans une cabane et d'un oeil vous voyez deux Gargouilles"
+        Texte = "Vous vous réveillez dans une cabane et en entrouvrant un oeil, vous voyez deux Gargouilles"
 
         break;
 
