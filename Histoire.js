@@ -4,8 +4,8 @@ function MonHistoire()
     {
         case 0:
             BtnValeur("btnSuite","Continuer");
-            Texte = "Il y avait une fois un Roi, qui vivait dans un immense château avec sa fille unique. Elle portait le nom d'Aenor, elle était une guerrière bigrement curieuse mais néanmoins trés doué au combat.";
-            Suite= 18;
+            Texte = "Il y avait une fois un Roi, qui vivait dans un immense château avec sa fille unique."+ "<br>" +"Elle portait le nom d'Aenor, elle était une guerrière bigrement curieuse mais néanmoins trés doué au combat.";
+            // Suite= 18;
         break;
 
         case 1:
@@ -27,7 +27,7 @@ function MonHistoire()
             VisibleCache("btnSuite","btnChoix")
             if (choix == 1)
             {
-                Texte = "En allant dans la cour vous vous dirrigez vers les cochons";
+                Texte = "En allant dans la cour vous vous dirigez vers les cochons";
                 Cour = true;
             }
             if (choix == 2)
@@ -70,7 +70,8 @@ function MonHistoire()
             {
                 Texte = "Vous gagnez 5 point de vie et Nero pars trés énerver"
                 Nero=3;
-                Heros.hp = Heros.hp + 5;
+                Heros.hp += 5;
+                VieMax += 5
                 interfaceHeros();
             }
         }
@@ -98,7 +99,8 @@ function MonHistoire()
         break;
 
         case 8:
-        Combat();
+        
+        LancerCombat(Guerrier);
 
         break;
 
@@ -138,9 +140,10 @@ function MonHistoire()
         if (Livre_Legendaire == true )
         {
             Texte = "Grâce au livre que le roi vous a donné. Vous commencez vôtre aventure et gagnez 2 points de vie, de force et 1 point de défense";
-            Heros.hp = Heros.hp + 2;
-            Heros.force = Heros.force + 2;
-            Heros.defense = Heros.defense + 1;
+            Heros.hp += 2;
+            VieMax += 2;
+            Heros.force += 2;
+            Heros.defense += 1;
             interfaceHeros();
             VisibleCache("btnSuite","btnChoix");
             Suite = 15 ;
@@ -164,9 +167,11 @@ function MonHistoire()
             }
             if (choix == 2)
             {
+                Heros.defense += 1;
+                interfaceHeros();
                if (Nero==1)
                {
-                    Texte = "Nero vous y attendait et vous donne le livre de légende"
+                    Texte = "Vous allez vous entrainer et gagner 1 point de défense. Nero vous y attendait et vous donne le livre de légende";
                     Livre_Legendaire = true;
                     Suite = 15;
                     VisibleCache("btnSuite","btnChoix");
@@ -174,7 +179,7 @@ function MonHistoire()
                else
                {
                     VisibleCache("btnSuite","btnChoix");
-                    Texte = "Vous allez vous entrainer."
+                    Texte = "Vous allez vous entrainer et gagner 1 point de défense"
 
                     choix = 2;
                     Suite-=4;
@@ -208,15 +213,12 @@ function MonHistoire()
             {
                 //affronter les gardes
                 Texte="Les gardes vous attaque";
-                Cache("btnChoix");
-                Ennemi = Garde;
-                interfaceEnnemi();
-                Combat();
+                LancerCombat(Garde);
             }
             if(choix == 2){
                 // Fuir
                 VisibleCache("btnSuite","btnChoix");
-                Texte = "Vous êtes appeurrer face au charisme de ces deux soldats et fuyer en appelant votre maman. Vôtre pantalon tombe et en le remettant vous voyez une ombre"
+                Texte = "Vous décidez de fuir les deux soldats. En vous retournant vous voyez une ombre"
 
                 choix = 2;
                 Suite-=6;     
@@ -264,7 +266,7 @@ function MonHistoire()
         case 20:
         if (choix == 1)
         {
-            Texte ="Vous entrez dans la grotte et croiser un monstre avec un grand oeil à la place de la tête. Il utilise ça tête pour faire des dribbles";
+            Texte ="Vous entrez dans la grotte et croiser un monstre avec un grand oeil à la place de la tête. Il utilise sa tête pour faire des dribbles";
             Grotte = true;
             
         }
@@ -300,7 +302,7 @@ function MonHistoire()
             Basket_Basket = true;
             if (choix == 1)
             {
-                VisibleCache("btnSuite","btnChoix")
+                VisibleCache("btnSuite","btnChoix");
                 Texte = 'Le monstre dit "Basket, basket". Vous dicider donc de le rennomer comme tel et de le suivre';
             }
 
@@ -313,6 +315,7 @@ function MonHistoire()
         }
         if (Montagne == true)
         {
+            Cache("Ennemi");
             Texte = "Vous continuez votre ascension mais l'épuisement ce fait sentir. Vous commencez à perdre connaissance";
         }
 
@@ -335,43 +338,134 @@ function MonHistoire()
 
         case 24:
 
-        Texte = "Vous vous réveillez dans une cabane et en entrouvrant un oeil, vous voyez deux Gargouilles"
-
+        Texte = "En vous reposant, vous récupérez toute votre vie";
+        Heros.hp = VieMax;
+        interfaceHeros();
+        
         break;
 
         case 25:
 
+        Texte = "Vous vous réveillez dans une cabane et en entrouvrant un oeil, vous voyez deux Gargouilles";
+
+        break;
+
+        case 26:
+            Texte = "Les deux gargouiles faces à vous discute, que faites-vous?";
+            BtnValeur("btnChoix1","Courir vers elle");
+            BtnValeur("btnChoix2","Marcher reposé vers elle");
+            VisibleCache("btnChoix","btnSuite");
+
         break;
     
-        case 26:
-
-        break;
-
         case 27:
-
+            if(choix == 1)
+            {
+                if(Nero == !1)
+                {
+                    Texte = "Les gargouilles, par un élan d'auto-défence vous attaque" ;
+                    Gargouille.hp = 8;
+                    LancerCombat(Gargouille);
+                }
+                else{
+                    Texte="Nero entrain de manger, fais un pets, ce qui vous interpelle. Vous comprenez grace à cela que c'est des amis à lui. Un personnage nommé Grizius vous interpelle et vous demande de le suivre.";
+                    VisibleCache("btnSuite","btnChoix");
+                    
+                }
+             
+            }
+            if(choix == 2)
+            {
+                Texte="En vous levant, une personne vous interpelle et vous demande de le suivre. Vous lui demandez sont nom: Grizius.";
+                VisibleCache("btnSuite","btnChoix");
+                
+            }
         break;
 
         case 28:
-
+        Cache("Ennemi");
+        Texte = "Vous suivez grizius hors de la cabane. Il vous dit qu'il vous attendez depuis longtemps" + "<br>" +"Il vous explique que peut avant son déclin, son cavalier et ami avait forger une lame qu'il avait appeller la lame des limbes";
+        Visible("btnSuite");
         break;
 
         case 29:
-
+            Texte = "Il reprit en vous expliquant que la lame est envelopper d'une aura magique" + "<br>" + "Et que seul la descendante du héros des cieux peut utiliser la puissance de la lame";
         break;
         
         case 30:
+
+            Texte = "Vous expliquez à Grizius ce qui se passe au château et soliciter son aide" + "<br>" + "Le vieux dragon accepte et vous dit de monter sur son dos";
 
         break;
 
         case 31:
 
+        Texte = "Vous partez donc en direction du chateau pars les airs sur le dos de Grizius";
+
         break;
         
         case 32:
 
+        Texte = "Arriver dans l'espace aérien du chateau vous subissez des feu nourit. Grizius vous pose alors dans l'enceinte et vous dit de le retrouver dans la cour"
+
         break;
 
         case 33:
+
+        Texte = "En vous dirigeant vers la cour, un gladiateur vous bloque la route";
+        
+        break;
+
+        case 34:
+
+        Texte = "Le Gladiateur vous attaque";
+        LancerCombat(Gladiateur);
+        
+        break;
+    
+        case 35:
+        Cache("Ennemi");
+        Texte = "En allant dans la cour un autre gladiateur vous barre la route";
+        Gladiateur.hp =  6 ;
+        LancerCombat(Gladiateur);
+        break;
+
+        case 36:
+        Cache("Ennemi");
+        Texte = "Corvus sort et pour vous affrontez";
+        LancerCombat()  
+        Visible("btnSuite");
+        break;
+        
+        case 37:
+
+            if(Nero == !1 & Basket_Basket == true)
+            {
+            
+            }
+            else(Nero == !1 & Basket_Basket == false)
+            {
+
+            }
+            if(Nero == 1 & Basket_Basket == true)
+            {
+            
+            }
+            else(Nero == 1 & Basket_Basket == false)
+            {
+
+            }
+        break;
+        
+        case 38:
+        
+        break;
+        
+        case 39:
+        
+        break;
+        
+        case 40:
         
         break;
 
