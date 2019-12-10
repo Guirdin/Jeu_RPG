@@ -355,7 +355,6 @@ function MonHistoire()
             BtnValeur("btnChoix1","Courir vers elle");
             BtnValeur("btnChoix2","Marcher reposé vers elle");
             VisibleCache("btnChoix","btnSuite");
-
         break;
     
         case 27:
@@ -400,94 +399,148 @@ function MonHistoire()
 
         case 31:
 
-        Texte = "Vous partez donc en direction du chateau pars les airs sur le dos de Grizius";
+            Texte = "Vous partez donc en direction du chateau pars les airs sur le dos de Grizius";
 
         break;
         
         case 32:
 
-        Texte = "Arriver dans l'espace aérien du chateau vous subissez des feu nourit. Grizius vous pose alors dans l'enceinte et vous dit de le retrouver dans la cour"
+            Texte = "Arriver dans l'espace aérien du chateau vous subissez des feu nourit. Grizius vous pose alors dans l'enceinte et vous dit de le retrouver dans la cour"
 
         break;
 
         case 33:
 
-        Texte = "En vous dirigeant vers la cour, un gladiateur vous bloque la route";
+            Texte = "En vous dirigeant vers la cour, un gladiateur vous bloque la route";
         
         break;
 
         case 34:
 
-        Texte = "Le Gladiateur vous attaque";
-        LancerCombat(Gladiateur);
+            Texte = "Le Gladiateur vous attaque";
+            LancerCombat(Gladiateur);
         
         break;
     
         case 35:
-        Cache("Ennemi");
-        Texte = "En allant dans la cour un autre gladiateur vous barre la route";
-        Gladiateur.hp =  6 ;
-        LancerCombat(Gladiateur);
+            Cache("Ennemi");
+            Texte = "En allant dans la cour un autre gladiateur vous barre la route";
+            Gladiateur.hp =  6 ;
+            LancerCombat(Gladiateur);
         break;
 
         case 36:
-        Cache("Ennemi");
-        Texte = "Corvus sort pour vous affrontez";
-        Final = true;
-        LancerCombat(Corvus);
+            Cache("Ennemi");
+            Texte = "Corvus sort pour vous affrontez";
+            Final = true;
+            LancerCombat(Corvus);
         
         break;
         
         case 37:
 
-        Texte = "En vous munissant de celle-ci Corvus semble eblouit par ça lumière"
-            if(Nero == !1 & Basket_Basket == true)
-            {
+            Texte = "En vous munissant de celle-ci Corvus semble eblouit par ça lumière"
             
-            }
-            else(Nero == !1 & Basket_Basket == false)
-            {
-
-            }
-            if(Nero == 1 & Basket_Basket == true)
-            {
-            
-            }
-            else(Nero == 1 & Basket_Basket == false)
-            {
-
-            }
         break;
         
         case 38:
 
-        Texte = "La métamorphose de Corvus s'estompe et Il se révéla etre le deuxieme dragon de la légende: Barbarus." + "<br>" +"Le vielle ennemi de Grizius énervé devient plus puissant que jamais"
+            Texte = "La métamorphose de Corvus s'estompe et Il se révéla etre le deuxieme dragon de la légende: Barbarus." + "<br>" +"Le vielle ennemi de Grizius énervé devient plus puissant que jamais"
         
         break;
         
         case 39:
 
-        Ennemi=Barbarus;
-        interfaceEnnemi();
-        Texte = "La lame des limbes brille de mille feu et vous confère ça puissance !"
+            Ennemi=Barbarus;
+            interfaceEnnemi();
+            Texte = "La lame des limbes et le bouclier sacré brille de mille feu et vous confère ça puissance !"
         break;
         
         case 40:
 
-        Texte = "Vous régénerez toute votre vie et recevez 10 point de défense, de force et 20 point de vie ";
-        Heros.defense += 10;
-        Heros.force += 10;
-        VieMax += 20;
-        Heros.hp = VieMax;
-        interfaceHeros();
-
+            Texte = "Vous régénerez toute votre vie et recevez 10 point de défense, 15 point de force et 20 point de vie ";
+            Heros.defense += 10;
+            Heros.force += 15;
+            VieMax += 20;
+            Heros.hp = VieMax;
+            interfaceHeros();
+            Copain =true;
+            Final = false;
         break;
 
         case 41:
 
-        Texte ="Barbarus vous attaque";
+            Texte ="Barbarus vous attaque et Grizius viens vous aidez";
+            Visible("Allie");
+            Allie = Grizius;
+            interfaceAllie();
+        break;
+
+        case 42:
+            if (Nero == 3)
+            {
+                Texte = "Nero en colère débarque, mange Babarus et absorbe tout ses pouvoir !"
+            }
+            else
+            {
+                VisibleCache("btnAttaque","btnSuite")
+            }
+            
 
         break;
+
+        case 43:
+
+            if (Nero == 3)
+            {
+                JustNero.hp += Barbarus.hp;
+                JustNero.defense += Barbarus.defense;
+                JustNero.force += Barbarus.force;
+                Ennemi = JustNero;
+                interfaceEnnemi();
+
+                if (Basket_Basket == true)
+                {
+                Texte = "Basket, basket se joint à la bataille !";
+                Explosion = true;
+                }
+                VisibleCache("btnAttaque","btnSuite");
+            }
+            
+        break;
+
+        case 44:
+            
+            
+
+        
+        break;
+        
+        case 45:
+        
+        break;
+        
+        case 46:
+        
+        break;
+        
+        case 47:
+        
+        break;
+        
+        case 48:
+        
+        break;
+        
+        case 49:
+        
+        break;
+        
+        case 50:
+        
+        break;
+
+
         // case :
 
         // break;

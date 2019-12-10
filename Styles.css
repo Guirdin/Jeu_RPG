@@ -1,0 +1,47 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:100%;
+    height:100%; 
+    top: 0%;
+    left: -0.025%;
+}
+.box_fight{
+    position: fixed;
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:50%;
+    height:90%; 
+    left:15%; 
+
+}
+.Affrontement{
+    width:17%;
+    height:40%;
+}
+.Bouton_attaque{
+    z-index:5; 
+    position:absolute; 
+    top:60%; 
+    left:25%;
+}
+.Border_Ennemi{
+    border:1px  double red;
+    background-color:firebrick;
+}
+.Border_Allié{
+    border:1px  double green;
+    background-color: lime;
+    
+}
+.Border_Basket{
+    
+    border:1px  double red;
+}
+.Background_fight{
+    background-image:url('Img/Combat.jpg');
+    background-size:100% 100%;
+}

@@ -1,10 +1,10 @@
 let Texte = "Bienvenue dans le jeu";
 let Suite = 0;
 
-let DegatHeros, DegatEnnemi, choix, chiffre;
+let DegatHeros, DegatEnnemi, DegatAllie, DegatEnnemiA, choix, chiffre, DegatBasket;
 let VieMax = 15;
-let Nero = 0;
-let Basket_Basket, Explosion, Roi, Cour, Grotte, Montagne,Livre_Legendaire,Victoire,Final = false;
+let Nero = 1;
+let Basket_Basket, Explosion, Roi, Cour, Grotte, Montagne,Livre_Legendaire,Victoire,Final, Copain = false;
 let Status = ["vie.","defense.","force."];
 
 
@@ -52,6 +52,8 @@ const Corvus = new Personnage("CORVUS",35,20,20);
 
 const Barbarus = new Personnage("BARBARUS",49,30,30);
 
+const Grizius = new Personnage("GRIZIUS",50,25,40);
+
 const Guerrier = new Personnage("GUERRIER",10,6,12);
 
 const Garde = new Personnage("GARDE",10,5,8);
@@ -60,11 +62,15 @@ const Monstre = new Personnage("MONSTRE",15,4,13);
 
 const Basket = new Personnage("BASKET",25,0,25);
 
+const JustNero = new Personnage ("NERO",100,50,10);
+
 const Gargouille = new Personnage("GARGOUILLE",8,6,12);
 
 const Gladiateur = new Personnage("GLADIATEUR",6,12,8);
 
 let Ennemi = Guerrier;
+
+let Allie = Grizius;
 
 
 
@@ -73,6 +79,22 @@ function interfaceHeros()
     AfficheTexte("VieHeros",Heros.hp);
     AfficheTexte("DefHeros",Heros.defense);
     AfficheTexte("ForceHeros",Heros.force);
+}
+
+function interfaceAllie()
+{
+    AfficheTexte("NomAllie",Allie.nom);    
+    AfficheTexte("VieAllie",Allie.hp);
+    AfficheTexte("DefAllie",Allie.defense);
+    AfficheTexte("ForceAllie",Allie.force);
+}
+
+function interfaceBasket()
+{
+    AfficheTexte("NomBasket",Basket.nom);    
+    AfficheTexte("VieBasket",Basket.hp);
+    AfficheTexte("DefBasket",Basket.defense);
+    AfficheTexte("ForceBasket",Basket.force);
 }
 
 function interfaceEnnemi()
@@ -129,9 +151,54 @@ function Degat()
         DegatEnnemi = Ennemi.force + Heros.force;
         DegatHeros = Heros.force - Ennemi.defense + DegatEnnemi;
     }
+    
+    if (Copain == true)
+    {
 
-    Ennemi.hp = Ennemi.hp - DegatHeros;
-    Heros.hp = Heros.hp - DegatEnnemi;
+        if (Allie.force <= Ennemi.defense)
+        {
+            DegatAllie = 1;
+        }
+        if (Ennemi.force <= Allie.defense)
+        {
+            DegatEnnemiA = 1;
+        }
+        if (Allie.force > Ennemi.defense)
+        {
+            DegatAllie = Allie.force - Ennemi.defense;
+        }
+        if (Ennemi.force > Allie.defense)
+        {
+            DegatEnnemiA = Ennemi.force - Allie.defense;
+        }
+
+        if (Nero == 3)
+        {
+            if(Explosion == true)
+            {
+                DegatBasket = Basket.force;
+                Allie.hp -= DegatBasket;
+                Basket.hp -= DegatBasket;
+                Ennemi.hp -= DegatBasket;
+                Heros.hp -= DegatBasket;
+            }
+        }
+        if (Nero == 1)
+        {
+            if(Explosion == true)
+            {
+                DegatBasket = Basket.force;
+                Basket.hp -= DegatBasket;
+                Ennemi.hp -= DegatBasket;
+                Texte= "Basket, basket à lancer sa tête qui à exploser et la tuer. Heureusemnet Nero c'est interposer et vous à protéger de l'explosion";
+                AfficheTexte("Histoire",Texte);
+            }
+        }
+        Allie.hp -= DegatEnnemiA;
+        Ennemi.hp -= DegatAllie;
+    }
+    Ennemi.hp -= DegatHeros;
+    Heros.hp -= DegatEnnemi;
 }
 
 function Attaque()
@@ -139,7 +206,8 @@ function Attaque()
     Degat();
     interfaceHeros();
     interfaceEnnemi();
-
+    interfaceAllie();
+    interfaceBasket();
     
 
     if (Ennemi.hp <= 0)
@@ -163,7 +231,7 @@ function Attaque()
         }
         else
         {
-            Texte = "Vous avez perdu, voulez-vous recommencer ?";
+            Texte = "Vous avez perdu, voulez-vous recommencer le jeu ?";
             AfficheTexte("Histoire",Texte);
         }
         Cache("btnAttaque");
@@ -171,6 +239,13 @@ function Attaque()
         Visible("btnReco");
         Heros.hp = 0;
         interfaceHeros();
+    }
+
+    if (Allie.hp <= 0)
+    {
+        Allie.hp = 0;
+        Texte = "Votre partenaire est mort";
+        AfficheTexte("Histoire",Texte);
     }
 
     if (Final == true)

@@ -10,45 +10,102 @@
     </head>
 
     <Body>
-        
-        <p id="Histoire" >Bienvenue dans l'histoire d'Aenor et la légende des dragons</p>
+        <div class="box" style="position: absolute; ">
+            <div style="width: 50%;height:30%; border:1px  solid black; background-image:url('Img/Parchemin.jpg');background-size:100% 100%;">  
+                <p id="Histoire" >Bienvenue dans l'histoire d'Aenor et la légende des dragons</p>
+                
+                <form>
+                    <input id="btnSuite" onclick="MonHistoire();" type="button" value="Commencer">
+                </form>
 
-        <form>
-            <input id="btnSuite" onclick="MonHistoire();" type="button" value="Commencer">
-        </form>
+                <form id="btnChoix" style="visibility:hidden">
+                    <input id="btnChoix1" onclick="choix=1;MonHistoire();" type="button" value="Choisir">
+                    <input id="btnChoix2" onclick="choix=2;MonHistoire();" type="button" value="Choisir">
+                </form>
+            </div>
+            
+            <div class="Background_fight"style="width: 50%; height:69.35%;  border:1px  solid black;" > 
+               
+                <div class="box_fight">
+                    <div class="Affrontement">
+                        <p id="Heros">
+                            <div class="Border_Allié">
+                               <p> AENOR</p> <br>
+                            </div>  
+                            <div class="Border_Allié"> 
+                                <br> <img src="Img/Heart.png"> <strong id="VieHeros" ></strong> 
+                                <br> <img src="Img/Shield.png"> <strong id="DefHeros" ></strong>
+                                <br> <img src="Img/Sword.png"> <strong id="ForceHeros" ></strong>
+                            </div>    
+                        </p>
+                    </div>
+                    <div class="Affrontement" id="Ennemi" >
+                            <p >
+                                <div class="Border_Ennemi">
+                                    <p>
+                                        <strong id="NomEnnemi" ></strong>
+                                    </p> <br>
+                                </div>
+                                <div class="Border_Ennemi">    
+                                    <br> <img src="Img/Heart.png"> <strong id="VieEnnemi" ></strong> 
+                                    <br> <img src="Img/Shield.png"> <strong id="DefEnnemi" ></strong>
+                                    <br> <img src="Img/Sword.png"> <strong id="ForceEnnemi" ></strong>
+                                </div>    
+                            </p>
+                    </div> 
+                    <div class="Affrontement" style="left:15%; " id="Allie">    
+                        <p>
+                            <div class="Border_Allié">
+                                <p>
+                                    <strong id="NomAllie" ></strong>
+                                </p> <br>
+                            </div>
+                            <div class="Border_Allié">
+                                <br> <img src="Img/Heart.png"> <strong id="VieAllie" ></strong> 
+                                <br> <img src="Img/Shield.png"> <strong id="DefAllie" ></strong>
+                                <br> <img src="Img/Sword.png"> <strong id="ForceAllie" ></strong>
+                            </div>
+                        </p>
+                    </div>
 
-        <form id="btnChoix" style="visibility:hidden">
-            <input id="btnChoix1" onclick="choix=1;MonHistoire();" type="button" value="Choisir">
-            <input id="btnChoix2" onclick="choix=2;MonHistoire();" type="button" value="Choisir">
-        </form>
-
-        <form style="visibility:hidden">
-            <input id="btnReco" onclick="Recommencer();" type="button" value="Recommencer">
-        </form>
-       
-        <p id="Heros"> AENOR <br>
-            <br> <img src="Img/Heart.png"> <strong id="VieHeros" ></strong> 
-            <br> <img src="Img/Shield.png"> <strong id="DefHeros" ></strong>
-            <br> <img src="Img/Sword.png"> <strong id="ForceHeros" ></strong>
-        </p>
-
-        <form id="btnAttaque" style="visibility:hidden">
-            <input  onclick="Attaque();" type="button" value="Attaquer">
-        </form>
-
-        <p style="visibility:hidden" id="Ennemi"><strong id="NomEnnemi" ></strong> <br>
-            <br> <img src="Img/Heart.png"> <strong id="VieEnnemi" ></strong> 
-            <br> <img src="Img/Shield.png"> <strong id="DefEnnemi" ></strong>
-            <br> <img src="Img/Sword.png"> <strong id="ForceEnnemi" ></strong>
-        </p>
-
-
+                    <div class="Affrontement" style="left:15%; " id="Basket">    
+                        <p>
+                            <div class="Border_Basket" style=" background: linear-gradient( lime, firebrick); ">
+                                 <p>
+                                     <strong id="NomBasket" ></strong>
+                                </p> <br>
+                            </div>
+                            <div style=" background: linear-gradient( firebrick, lime);"class="Border_Basket">
+                                <br> <img src="Img/Heart.png"> <strong id="VieBasket" ></strong> 
+                                <br> <img src="Img/Shield.png"> <strong id="DefBasket" ></strong>
+                                <br> <img src="Img/Sword.png"> <strong id="ForceBasket" ></strong>
+                            </div>
+                        </p>
+                    </div>
+                     
+                </div>
+            
+             </div>
+            <div style=" width: 49.77%; height:99.78%; border:1px  solid black;"> 
+                <img src="Img/Chateau.jpg" style="height:100%; width:100%;" >
+            </div>
+         </div>  
+         <div class="Bouton_attaque"> 
+            <form style="visibility:hidden">
+                    <input id="btnReco" onclick="Recommencer();" type="button" value="Recommencer">
+            </form>
+            <form id="btnAttaque" style="visibility:hidden">
+                    <input  onclick="Attaque();" type="button" value="Attaquer">
+            </form>
+        </div>
     </Body>
 
     <Script>
 
         interfaceHeros();
+        interfaceAllie();
         interfaceEnnemi();
+        interfaceBasket();
 
 
     </Script>
