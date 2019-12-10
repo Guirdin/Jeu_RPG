@@ -5,7 +5,7 @@ function MonHistoire()
         case 0:
             BtnValeur("btnSuite","Continuer");
             Texte = "Il y avait une fois un Roi, qui vivait dans un immense château avec sa fille unique."+ "<br>" +"Elle portait le nom d'Aenor, elle était une guerrière bigrement curieuse mais néanmoins trés doué au combat.";
-            // Suite= 18;
+            Suite= 35;
         break;
 
         case 1:
@@ -432,13 +432,15 @@ function MonHistoire()
 
         case 36:
         Cache("Ennemi");
-        Texte = "Corvus sort et pour vous affrontez";
-        LancerCombat()  
-        Visible("btnSuite");
+        Texte = "Corvus sort pour vous affrontez";
+        Final = true;
+        LancerCombat(Corvus);
+        
         break;
         
         case 37:
 
+        Texte = "En vous munissant de celle-ci Corvus semble eblouit par ça lumière"
             if(Nero == !1 & Basket_Basket == true)
             {
             
@@ -458,17 +460,34 @@ function MonHistoire()
         break;
         
         case 38:
+
+        Texte = "La métamorphose de Corvus s'estompe et Il se révéla etre le deuxieme dragon de la légende: Barbarus." + "<br>" +"Le vielle ennemi de Grizius énervé devient plus puissant que jamais"
         
         break;
         
         case 39:
-        
+
+        Ennemi=Barbarus;
+        interfaceEnnemi();
+        Texte = "La lame des limbes brille de mille feu et vous confère ça puissance !"
         break;
         
         case 40:
-        
+
+        Texte = "Vous régénerez toute votre vie et recevez 10 point de défense, de force et 20 point de vie ";
+        Heros.defense += 10;
+        Heros.force += 10;
+        VieMax += 20;
+        Heros.hp = VieMax;
+        interfaceHeros();
+
         break;
 
+        case 41:
+
+        Texte ="Barbarus vous attaque";
+
+        break;
         // case :
 
         // break;

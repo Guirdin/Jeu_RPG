@@ -4,7 +4,7 @@ let Suite = 0;
 let DegatHeros, DegatEnnemi, choix, chiffre;
 let VieMax = 15;
 let Nero = 0;
-let Basket_Basket, Explosion, Roi, Cour, Grotte, Montagne,Livre_Legendaire,Victoire = false;
+let Basket_Basket, Explosion, Roi, Cour, Grotte, Montagne,Livre_Legendaire,Victoire,Final = false;
 let Status = ["vie.","defense.","force."];
 
 
@@ -48,7 +48,9 @@ class Personnage
 
 const Heros = new Personnage("AENOR",15,10,10);
 
-const Corvus = new Personnage("CORVUS",50,20,20);
+const Corvus = new Personnage("CORVUS",35,20,20);
+
+const Barbarus = new Personnage("BARBARUS",49,30,30);
 
 const Guerrier = new Personnage("GUERRIER",10,6,12);
 
@@ -138,6 +140,8 @@ function Attaque()
     interfaceHeros();
     interfaceEnnemi();
 
+    
+
     if (Ennemi.hp <= 0)
     {
         chiffre = ChiffreRdm(0,2);
@@ -168,6 +172,15 @@ function Attaque()
         Heros.hp = 0;
         interfaceHeros();
     }
+
+    if (Final == true)
+    {
+        VisibleCache("btnSuite","btnAttaque");
+        Texte = "Corvus semble trop fort ! En regardant vers le ciel vous voyez Grizius. Il vous dit de vous servir de la lame des limbes";
+        AfficheTexte("Histoire",Texte);
+        
+    }
+    
 }
 
 function LancerCombat(cible)
@@ -180,6 +193,18 @@ function LancerCombat(cible)
     interfaceEnnemi();
 
 }
+
+
+function CombatFinal()
+{
+    VisibleCache("btnAttaque","btnSuite");
+    Visible("Ennemi");
+    Cache("btnChoix");
+    Ennemi = Corvus;
+    interfaceEnnemi();
+
+}
+
 
 function Recommencer()
 {
