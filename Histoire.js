@@ -433,6 +433,7 @@ function MonHistoire()
             Cache("Ennemi");
             Texte = "Corvus sort pour vous affrontez";
             Final = true;
+            Exception = true;
             LancerCombat(Corvus);
         
         break;
@@ -444,7 +445,7 @@ function MonHistoire()
         break;
         
         case 38:
-
+            Exception = false;
             Texte = "La métamorphose de Corvus s'estompe et Il se révéla etre le deuxieme dragon de la légende: Barbarus." + "<br>" +"Le vielle ennemi de Grizius énervé devient plus puissant que jamais"
         
         break;
@@ -460,12 +461,11 @@ function MonHistoire()
 
             Texte = "Vous régénerez toute votre vie et recevez 10 point de défense, 15 point de force et 20 point de vie ";
             Heros.defense += 10;
-            Heros.force += 15;
+            Heros.force += 25;
             VieMax += 20;
             Heros.hp = VieMax;
             interfaceHeros();
             Copain =true;
-            Final = false;
         break;
 
         case 41:
@@ -485,7 +485,25 @@ function MonHistoire()
             {
                 VisibleCache("btnAttaque","btnSuite")
             }
-            
+            if (Nero == 1)
+            {
+                if (Basket_Basket == true)
+                {
+                Texte = "Basket, basket se joint à la bataille !";
+                Explosion = true;
+                }
+                VisibleCache("btnAttaque","btnSuite");
+            }
+
+            if (Nero == 0)
+            {
+                if (Basket_Basket == true)
+                {
+                Texte = "Basket, basket se joint à la bataille !";
+                Explosion = true;
+                }
+                VisibleCache("btnAttaque","btnSuite");
+            }
 
         break;
 
@@ -506,18 +524,32 @@ function MonHistoire()
                 }
                 VisibleCache("btnAttaque","btnSuite");
             }
+
+            if (Nero == 1)
+            {
+                if (Basket_Basket == true)
+                {
+                    Explosion=false;
+                    Texte = "Barbarus vous attaque"
+                    Cache("Basket");
+                    VisibleCache("btnAttaque","btnSuite");
+                }
+            }
             
         break;
 
         case 44:
-            
-            
-
-        
+               
+            Texte = "Tout le village à vu que vous avez tuer un puissant dragon. Vous gagnez leurs rescpect est devenez la nouvelle Reine";
+               
         break;
         
         case 45:
         
+            Texte = "Vous avez fini le jeu. Voulez vous recommencer ? Vous pouvez suivre un autre chemin afin d'avoir une histoire modifier";
+            VisibleCache("btnReco","btnSuite");
+
+
         break;
         
         case 46:

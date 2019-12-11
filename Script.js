@@ -3,10 +3,9 @@ let Suite = 0;
 
 let DegatHeros, DegatEnnemi, DegatAllie, DegatEnnemiA, choix, chiffre, DegatBasket;
 let VieMax = 15;
-let Nero = 1;
-let Basket_Basket, Explosion, Roi, Cour, Grotte, Montagne,Livre_Legendaire,Victoire,Final, Copain = false;
+let Nero = 3;
+let Basket_Basket, Explosion, Roi, Cour, Grotte, Montagne,Livre_Legendaire,Victoire,Final, Exception, Copain = false;
 let Status = ["vie.","defense.","force."];
-
 
 function AttributionStat()
 {
@@ -146,10 +145,13 @@ function Degat()
         DegatEnnemi = Ennemi.force - Heros.defense;
     }
 
-    if(Explosion == true)
+    if (Copain == false)
     {
-        DegatEnnemi = Ennemi.force + Heros.force;
-        DegatHeros = Heros.force - Ennemi.defense + DegatEnnemi;
+        if(Explosion == true)
+        {
+            DegatEnnemi = Ennemi.force + Heros.force;
+            DegatHeros = Heros.force - Ennemi.defense + DegatEnnemi;
+        }
     }
     
     if (Copain == true)
@@ -172,7 +174,7 @@ function Degat()
             DegatEnnemiA = Ennemi.force - Allie.defense;
         }
 
-        if (Nero == 3)
+        if (Nero == 3 || Nero == 0)
         {
             if(Explosion == true)
             {
@@ -192,7 +194,9 @@ function Degat()
                 Ennemi.hp -= DegatBasket;
                 Texte= "Basket, basket à lancer sa tête qui à exploser et la tuer. Heureusemnet Nero c'est interposer et vous à protéger de l'explosion";
                 AfficheTexte("Histoire",Texte);
+                VisibleCache("btnSuite","btnAttaque")
             }
+            
         }
         Allie.hp -= DegatEnnemiA;
         Ennemi.hp -= DegatAllie;
@@ -209,18 +213,20 @@ function Attaque()
     interfaceAllie();
     interfaceBasket();
     
-
-    if (Ennemi.hp <= 0)
+    if (Final == false)
     {
-        chiffre = ChiffreRdm(0,2);
-        VisibleCache("btnSuite","btnAttaque");
-        BtnValeur("btnSuite","Continuer")
-        Texte = "Félicitation vous avez reussi le combat et remporté 1 point de " + Status[chiffre] ;
-        AttributionStat();
-        AfficheTexte("Histoire",Texte);
-        Ennemi.hp = 0;
-        
-        interfaceEnnemi();
+        if (Ennemi.hp <= 0)
+        {
+            chiffre = ChiffreRdm(0,2);
+            VisibleCache("btnSuite","btnAttaque");
+            BtnValeur("btnSuite","Continuer")
+            Texte = "Félicitation vous avez reussi le combat et remporté 1 point de " + Status[chiffre] ;
+            AttributionStat();
+            AfficheTexte("Histoire",Texte);
+            Ennemi.hp = 0;
+            
+            interfaceEnnemi();
+        }
     }
     if (Heros.hp <= 0)
     {
@@ -250,9 +256,28 @@ function Attaque()
 
     if (Final == true)
     {
+
+        if (Exception == true)
+        {
         VisibleCache("btnSuite","btnAttaque");
         Texte = "Corvus semble trop fort ! En regardant vers le ciel vous voyez Grizius. Il vous dit de vous servir de la lame des limbes";
         AfficheTexte("Histoire",Texte);
+        }
+        if (Heros.hp > 0)
+        {
+            if (Ennemi.hp <= 0)
+            {
+                VisibleCache("btnSuite","btnAttaque");
+                Texte = "Félicitation vous avez vaincu Barbarus";
+                AfficheTexte("Histoire",Texte);
+                
+            }
+        }
+        if (Ennemi.hp <= 0)
+        {
+            Ennemi.hp = 0;
+            interfaceEnnemi();
+        }
         
     }
     
