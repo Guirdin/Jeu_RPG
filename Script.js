@@ -3,7 +3,7 @@ let Suite = 0;
 
 let DegatHeros, DegatEnnemi, DegatAllie, DegatEnnemiA, choix, chiffre, DegatBasket;
 let VieMax = 15;
-let Nero = 3;
+let Nero = 0;
 let Basket_Basket, Explosion, Roi, Cour, Grotte, Montagne,Livre_Legendaire,Victoire,Final, Exception, Copain = false;
 let Status = ["vie.","defense.","force."];
 
@@ -215,8 +215,10 @@ function Attaque()
     
     if (Final == false)
     {
+        console.log("cc");
         if (Ennemi.hp <= 0)
         {
+            console.log("re");
             chiffre = ChiffreRdm(0,2);
             VisibleCache("btnSuite","btnAttaque");
             BtnValeur("btnSuite","Continuer")

@@ -5,7 +5,8 @@ function MonHistoire()
         case 0:
             BtnValeur("btnSuite","Continuer");
             Texte = "Il y avait une fois un Roi, qui vivait dans un immense château avec sa fille unique."+ "<br>" +"Elle portait le nom d'Aenor, elle était une guerrière bigrement curieuse mais néanmoins trés doué au combat.";
-            Suite= 35;
+            // Suite= 35;
+            Final=false;
         break;
 
         case 1:
@@ -139,10 +140,10 @@ function MonHistoire()
 
         if (Livre_Legendaire == true )
         {
-            Texte = "Grâce au livre que le roi vous a donné. Vous commencez vôtre aventure et gagnez 2 points de vie, de force et 1 point de défense";
+            Texte = "Grâce au livre que le roi vous a donné. Vous commencez vôtre aventure et gagnez 2 points de vie, 1 point de force et 1 point de défense";
             Heros.hp += 2;
             VieMax += 2;
-            Heros.force += 2;
+            Heros.force += 1;
             Heros.defense += 1;
             interfaceHeros();
             VisibleCache("btnSuite","btnChoix");
@@ -360,7 +361,7 @@ function MonHistoire()
         case 27:
             if(choix == 1)
             {
-                if(Nero == !1)
+                if(Nero != 1)
                 {
                     Texte = "Les gargouilles, par un élan d'auto-défence vous attaque" ;
                     Gargouille.hp = 8;
@@ -555,23 +556,6 @@ function MonHistoire()
         case 46:
         
         break;
-        
-        case 47:
-        
-        break;
-        
-        case 48:
-        
-        break;
-        
-        case 49:
-        
-        break;
-        
-        case 50:
-        
-        break;
-
 
         // case :
 
