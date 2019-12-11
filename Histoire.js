@@ -467,6 +467,8 @@ function MonHistoire()
             Heros.hp = VieMax;
             interfaceHeros();
             Copain =true;
+            RemplaceImage("img_Aenor","Img/Aenor_Charge.png");
+            RepositionLeft("img_Aenor","-29.2%");
         break;
 
         case 41:

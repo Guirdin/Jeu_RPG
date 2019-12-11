@@ -7,6 +7,7 @@ let Nero = 0;
 let Basket_Basket, Explosion, Roi, Cour, Grotte, Montagne,Livre_Legendaire,Victoire,Final, Exception, Copain = false;
 let Status = ["vie.","defense.","force."];
 
+
 function AttributionStat()
 {
     if (chiffre == 0 )
@@ -109,20 +110,34 @@ function AfficheTexte(MonId,Txt)
     document.getElementById(MonId).innerHTML = Txt;
 }
 
-function Cache(Valeur){
+function RemplaceImage(de_monId,par_maSrc)
+{
+    document.getElementById(de_monId).src = par_maSrc;
+}
+
+function RepositionLeft(de_monId,par_maValeur)
+{
+    document.getElementById(de_monId).style.left=par_maValeur;
+}
+
+function Cache(Valeur)
+{
     document.getElementById(Valeur).style.visibility='hidden';
 }
 
-function Visible(Valeur){
+function Visible(Valeur)
+{
     document.getElementById(Valeur).style.visibility='visible';
 }
 
-function VisibleCache(Visi,Cach){
+function VisibleCache(Visi,Cach)
+{
     Visible(Visi);
     Cache(Cach);
 }
 
-function BtnValeur (Btn,Valeur){
+function BtnValeur (Btn,Valeur)
+{
     document.getElementById(Btn).value = Valeur;
 }
 
@@ -212,7 +227,7 @@ function Attaque()
     interfaceEnnemi();
     interfaceAllie();
     interfaceBasket();
-    
+
     if (Final == false)
     {
         console.log("cc");
