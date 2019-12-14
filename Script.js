@@ -120,6 +120,11 @@ function RepositionLeft(de_monId,par_maValeur)
     document.getElementById(de_monId).style.left=par_maValeur;
 }
 
+function RepositionTop(de_monId,par_maValeur)
+{
+    document.getElementById(de_monId).style.top=par_maValeur;
+}
+
 function Cache(Valeur)
 {
     document.getElementById(Valeur).style.visibility='hidden';

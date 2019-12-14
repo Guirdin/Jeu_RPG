@@ -5,7 +5,7 @@ function MonHistoire()
         case 0:
             BtnValeur("btnSuite","Continuer");
             Texte = "Il y avait une fois un Roi, qui vivait dans un immense château avec sa fille unique."+ "<br>" +"Elle portait le nom d'Aenor, elle était une guerrière bigrement curieuse mais néanmoins trés doué au combat.";
-            // Suite= 35;
+            Suite= 35;
             Final=false;
         break;
 
@@ -125,6 +125,9 @@ function MonHistoire()
 
         if (choix == 2)
         {
+            RemplaceImage("img_Ennemi","Img/Corvus.png");
+            RepositionLeft("img_Ennemi","-29.5%");
+            RepositionTop("img_Ennemi", "41%");
             Texte="Corvus vous attaque";
             LancerCombat(Corvus);
     
@@ -435,6 +438,9 @@ function MonHistoire()
             Texte = "Corvus sort pour vous affrontez";
             Final = true;
             Exception = true;
+            RemplaceImage("img_Ennemi","Img/Corvus.png");
+            RepositionLeft("img_Ennemi","-29.5%");
+            RepositionTop("img_Ennemi", "41%");
             LancerCombat(Corvus);
         
         break;
@@ -452,10 +458,13 @@ function MonHistoire()
         break;
         
         case 39:
-
+            RemplaceImage("img_Ennemi","Img/Barbarus.png");
+            RepositionLeft("img_Ennemi","-29.5%");
+            RepositionTop("img_Ennemi", "41%");
+            RepositionLeft("Ennemi","-29.5%");
             Ennemi=Barbarus;
             interfaceEnnemi();
-            Texte = "La lame des limbes et le bouclier sacré brille de mille feu et vous confère ça puissance !"
+            Texte = "La lame des limbes et le bouclier sacré brille de mille feu et vous confère sa puissance !"
         break;
         
         case 40:

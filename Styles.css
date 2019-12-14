@@ -23,7 +23,6 @@
     height:40%;
 }
 .Bouton_attaque{
-    z-index:5; 
     position:absolute; 
     top:60%; 
     left:25%;
@@ -31,6 +30,7 @@
 .Border_Ennemi{
     border:1px  double red;
     background-color:firebrick;
+    
 }
 .Border_Allie{
     border:1px  double green;
@@ -44,4 +44,15 @@
 .Background_fight{
     background-image:url('Img/Combat.jpg');
     background-size:100% 100%;
+}
+
+.Image_fight{
+    position: sticky;
+    width:30%;
+    height:40%;
+
+}
+.Attributs{
+    position: sticky;
+    margin-left: 7px;
 }

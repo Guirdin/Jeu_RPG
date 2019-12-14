@@ -12,7 +12,7 @@
     <Body>
         <div class="box" style="position: absolute; ">
             <div style="width: 50%;height:30%; border:1px  solid black; background-image:url('Img/Parchemin.jpg');background-size:100% 100%;">  
-                <p id="Histoire" >Bienvenue dans l'histoire d'Aenor et la légende des dragons</p>
+                <p id="Histoire" style="font-family: URW Chancery L, cursive; font-style: italic;" >Bienvenue dans l'histoire d'Aenor et la légende des dragons</p>
                 
                 <form>
                     <input id="btnSuite" onclick="MonHistoire();" type="button" value="Commencer">
@@ -27,6 +27,12 @@
             <div class="Background_fight"style="width: 50%; height:69.35%;  border:1px  solid black;" > 
                
                 <div class="box_fight">
+                    <!-- <div class="Image_fight">
+                        {
+                            <img src="Img/Barbarus.png" style="width:100%; height:100%">
+
+                        }
+                    </div> -->
                     <div class="Affrontement">
                         <p id="Heros">
                                 <img id="img_Aenor"src="Img/Aenor.png" style="position: absolute; left:-21%; top:1%;">
@@ -34,37 +40,45 @@
                                <p> AENOR</p> <br>
                             </div>  
                             <div class="Border_Allie"> 
-                                <br> <img src="Img/Heart.png"> <strong id="VieHeros" ></strong> 
-                                <br> <img src="Img/Shield.png"> <strong id="DefHeros" ></strong>
-                                <br> <img src="Img/Sword.png"> <strong id="ForceHeros" ></strong>
-                            </div>    
-                        </p>
+                                <div class=Attributs>  
+                                    <br> <img src="Img/Heart.png"> <strong id="VieHeros" ></strong> 
+                                    <br> <img src="Img/Shield.png"> <strong id="DefHeros" ></strong>
+                                    <br> <img src="Img/Sword.png"> <strong id="ForceHeros" ></strong>
+                                </div>    
+                            </div>
+                            </p>
                     </div>
                     <div style="visibility:hidden" class="Affrontement" id="Ennemi" >
-                            <p >
+                            <p>
+                                <img id="img_Ennemi"src="Img/Guerrier.png" style="position: absolute; left:-22%; top:38%; z-index: 2; ">
                                 <div class="Border_Ennemi">
                                     <p>
                                         <strong id="NomEnnemi" ></strong>
                                     </p> <br>
                                 </div>
-                                <div class="Border_Ennemi">    
-                                    <br> <img src="Img/Heart.png"> <strong id="VieEnnemi" ></strong> 
-                                    <br> <img src="Img/Shield.png"> <strong id="DefEnnemi" ></strong>
-                                    <br> <img src="Img/Sword.png"> <strong id="ForceEnnemi" ></strong>
+                                <div class="Border_Ennemi" style="z-index: 3;">
+                                    <div class=Attributs>   
+                                        <br> <img src="Img/Heart.png" > <strong id="VieEnnemi" ></strong> 
+                                        <br> <img src="Img/Shield.png"> <strong id="DefEnnemi" ></strong>
+                                        <br> <img src="Img/Sword.png"> <strong id="ForceEnnemi" ></strong>
+                                    </div>
                                 </div>    
                             </p>
                     </div> 
                     <div style="visibility:hidden" class="Affrontement" style="left:15%; " id="Allie">    
                         <p>
+                                <img id="img_Allie"src="Img/Grizius.png" style="position: absolute; left:10%;">
                             <div class="Border_Allie">
                                 <p>
                                     <strong id="NomAllie" ></strong>
                                 </p> <br>
                             </div>
                             <div class="Border_Allie">
-                                <br> <img src="Img/Heart.png"> <strong id="VieAllie" ></strong> 
-                                <br> <img src="Img/Shield.png"> <strong id="DefAllie" ></strong>
-                                <br> <img src="Img/Sword.png"> <strong id="ForceAllie" ></strong>
+                                <div class=Attributs>  
+                                    <br> <img src="Img/Heart.png"> <strong id="VieAllie" ></strong> 
+                                    <br> <img src="Img/Shield.png"> <strong id="DefAllie" ></strong>
+                                    <br> <img src="Img/Sword.png"> <strong id="ForceAllie" ></strong>
+                                </div>
                             </div>
                         </p>
                     </div>
@@ -77,9 +91,11 @@
                                 </p> <br>
                             </div>
                             <div style=" background: linear-gradient( firebrick, lime);"class="Border_Basket">
-                                <br> <img src="Img/Heart.png"> <strong id="VieBasket" ></strong> 
-                                <br> <img src="Img/Shield.png"> <strong id="DefBasket" ></strong>
-                                <br> <img src="Img/Sword.png"> <strong id="ForceBasket" ></strong>
+                                <div class=Attributs>  
+                                    <br> <img src="Img/Heart.png"> <strong id="VieBasket" ></strong> 
+                                    <br> <img src="Img/Shield.png"> <strong id="DefBasket" ></strong>
+                                    <br> <img src="Img/Sword.png"> <strong id="ForceBasket" ></strong>
+                                </div>
                             </div>
                         </p>
                     </div>
