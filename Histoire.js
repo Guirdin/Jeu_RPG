@@ -3,7 +3,6 @@ function MonHistoire()
     switch (Suite) 
     {
         case 0:
-            BtnValeur("btnSuite","Continuer");
             Texte = "Il y avait une fois un Roi, qui vivait dans un immense château avec sa fille unique."+ "<br>" +"Elle portait le nom d'Aenor, elle était une guerrière bigrement curieuse mais néanmoins trés doué au combat.";
             Suite= 35;
             Final=false;
@@ -572,7 +571,6 @@ function MonHistoire()
 
         // break;
     }
-
     AfficheTexte("Histoire",Texte);
     Suite++;
 }

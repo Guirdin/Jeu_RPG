@@ -14,8 +14,14 @@
             <div style="width: 50%;height:30%; border:1px  solid black; background-image:url('Img/Parchemin.jpg');background-size:100% 100%;">  
                 <p id="Histoire" style="font-family: URW Chancery L, cursive; font-style: italic;" >Bienvenue dans l'histoire d'Aenor et la légende des dragons</p>
                 
+                
+
                 <form>
-                    <input id="btnSuite" onclick="MonHistoire();" type="button" value="Commencer">
+                    <input id="btnSuite" onclick="MonHistoire();" type="button" value="Continuer">
+                </form> 
+
+                <form style="visibility:hidden">
+                    <input id="btnReco" onclick="Recommencer();" type="button" value="Recommencer">
                 </form>
 
                 <form id="btnChoix" style="visibility:hidden">
@@ -85,6 +91,7 @@
 
                     <div style="visibility:hidden" class="Affrontement" style="left:15%; " id="Basket">    
                         <p>
+                                <img id="img_Basket"src="Img/Basket.png" style="position: absolute; left:23%; top:45%;">
                             <div class="Border_Basket" style=" background: linear-gradient( lime, firebrick); ">
                                  <p>
                                     <strong id="NomBasket" ></strong>
@@ -107,14 +114,10 @@
                 <img src="Img/Chateau.jpg" style="height:100%; width:100%;" >
             </div>
          </div>  
-         <div class="Bouton_attaque"> 
-            <form style="visibility:hidden">
-                    <input id="btnReco" onclick="Recommencer();" type="button" value="Recommencer">
-            </form>
             <form id="btnAttaque" style="visibility:hidden">
                     <input  onclick="Attaque();" type="button" value="Attaquer">
             </form>
-        </div>
+        
     </Body>
 
     <Script>
