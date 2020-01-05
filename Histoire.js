@@ -5,6 +5,7 @@ function MonHistoire()
         case 0:
             Texte = "Il y avait une fois un Roi, qui vivait dans un immense château avec sa fille unique."+ "<br>" +"Elle portait le nom d'Aenor, elle était une guerrière bigrement curieuse mais néanmoins trés doué au combat.";
             Final=false;
+            Suite=32;
         break;
 
         case 1:
@@ -131,8 +132,7 @@ function MonHistoire()
         break;
 
         case 11:
-        
-        Texte = "Le Cortvus découronna le rois et pris sa place, la fête de couronement auras lieu dans 2 jours.";        
+        Texte = "Corvus découronna le rois et pris sa place, la fête de couronement auras lieu dans 2 jours.";        
         break;
 
         case 12:
@@ -213,6 +213,10 @@ function MonHistoire()
             {
                 //affronter les gardes
                 Texte="Le garde vous attaque";
+                RemplaceImage("img_Ennemi","Img/Garde.png")
+                interfaceEnnemi();
+                RepositionLeft("img_Ennemi","-28.5%");
+                RepositionTop("img_Ennemi", "41%");
                 LancerCombat(Garde);
             }
             if(choix == 2){
@@ -227,6 +231,7 @@ function MonHistoire()
         break;
 
         case 16:
+            Cache("Ennemi");
             Texte = "Vous partez pour le Pahoehoe";
             VisibleCache("btnSuite","btnChoix");
         break;
@@ -240,6 +245,10 @@ function MonHistoire()
         case 18:
 
         Texte="Le Monstre vous attaque";
+        RemplaceImage("img_Ennemi","Img/Monstre.png")
+        interfaceEnnemi();
+        RepositionLeft("img_Ennemi","-28.5%");
+        RepositionTop("img_Ennemi", "41%");
         LancerCombat(Monstre);
             
         break;
@@ -290,6 +299,10 @@ function MonHistoire()
 
         if (Montagne == true)
         {
+            RemplaceImage("img_Ennemi","Img/Gargouille.png")
+            interfaceEnnemi();
+            RepositionLeft("img_Ennemi","-25.5%");
+            RepositionTop("img_Ennemi", "41%");
             LancerCombat(Gargouille);
         }
 
@@ -310,6 +323,10 @@ function MonHistoire()
             {
                 Texte = 'Le monstre dit "Basket, basket". Vous dicider donc de le rennomer comme tel';
                 Explosion = true;
+                RemplaceImage("img_Ennemi","Img/Basket.png")
+                interfaceEnnemi();
+                RepositionLeft("img_Ennemi","-29.5%");
+                RepositionTop("img_Ennemi", "41%");
                 LancerCombat(Basket);
             }
         }
@@ -346,12 +363,12 @@ function MonHistoire()
 
         case 25:
 
-        Texte = "Vous vous réveillez dans une cabane et en entrouvrant un oeil, vous voyez deux Gargouilles";
+        Texte = "Vous vous réveillez dans une cabane et en entrouvrant un oeil, vous voyez une Gargouille";
 
         break;
 
         case 26:
-            Texte = "Les deux gargouiles faces à vous discute, que faites-vous?";
+            Texte = "La gargouile faces à vous monte la garde, que faites-vous?";
             BtnValeur("btnChoix1","Courir vers elle");
             BtnValeur("btnChoix2","Marcher reposé vers elle");
             VisibleCache("btnChoix","btnSuite");
@@ -362,7 +379,7 @@ function MonHistoire()
             {
                 if(Nero != 1)
                 {
-                    Texte = "Les gargouilles, par un élan d'auto-défence vous attaque" ;
+                    Texte = "La gargouille, par un élan d'auto-défence vous attaque" ;
                     Gargouille.hp = 8;
                     LancerCombat(Gargouille);
                 }
@@ -418,6 +435,10 @@ function MonHistoire()
         case 34:
 
             Texte = "Le Gladiateur vous attaque";
+            RemplaceImage("img_Ennemi","Img/Gladiateur.png")
+            interfaceEnnemi();
+            RepositionLeft("img_Ennemi","-28.5%");
+            RepositionTop("img_Ennemi", "41%");
             LancerCombat(Gladiateur);
         
         break;
@@ -449,7 +470,7 @@ function MonHistoire()
         
         case 38:
             Exception = false;
-            Texte = "La métamorphose de Corvus s'estompe et Il se révéla etre le deuxieme dragon de la légende: Barbarus." + "<br>" +"Le vielle ennemi de Grizius énervé devient plus puissant que jamais"
+            Texte = "La métamorphose de Corvus s'estompe et Il se révéla etre le deuxieme dragon de la légende: Barbarus." + "<br>" +"Le vieille ennemi de Grizius énervé devient plus puissant que jamais"
         
         break;
         
@@ -497,6 +518,7 @@ function MonHistoire()
             {
                 if (Basket_Basket == true)
                 {
+                Visible("Basket");
                 Texte = "Basket, basket se joint à la bataille !";
                 Explosion = true;
                 }
@@ -507,6 +529,7 @@ function MonHistoire()
             {
                 if (Basket_Basket == true)
                 {
+                Visible("Basket");
                 Texte = "Basket, basket se joint à la bataille !";
                 Explosion = true;
                 }
@@ -528,6 +551,7 @@ function MonHistoire()
                 if (Basket_Basket == true)
                 {
                 Texte = "Basket, basket se joint à la bataille !";
+                Visible("Basket");
                 Explosion = true;
                 }
                 RemplaceImage("img_Ennemi","Img/JustNero.png");
