@@ -2,14 +2,9 @@ function MonHistoire()
 {
     switch (Suite) 
     {
-        
         case 0:
             Texte = "Il y avait une fois un Roi, qui vivait dans un immense château avec sa fille unique."+ "<br>" +"Elle portait le nom d'Aenor, elle était une guerrière bigrement curieuse mais néanmoins trés doué au combat.";
-            Suite= 35;
-            Final=false; 
-            Nero=3;
-            Suite= 35;
-           
+            Final=false;
         break;
 
         case 1:
@@ -57,7 +52,6 @@ function MonHistoire()
                 BtnValeur("btnChoix1","Lui parler du Vagabond");
                 BtnValeur("btnChoix2","Lui demander de vous racontez la légende");
             }
-
         break;
 
         case 6:
@@ -69,7 +63,6 @@ function MonHistoire()
                 Texte = "Nero vous remercie et pars"
                 Nero=1;
             }
-
             if (choix == 2)
             {
                 Texte = "Vous gagnez 5 point de vie et Nero pars très énerver"
@@ -110,7 +103,7 @@ function MonHistoire()
 
         case 9:
         Cache("Ennemi");
-        Texte = "Le vagabond ce dévoile. Il dit se nommer Corvus et exige que le roi vienne face à lui. Le roi le rejoignit alors dans la cour."
+        Texte = "Le vagabond se dévoile. Il dit se nommer Corvus et exige que le roi vienne face à lui. Le roi descend alors dans la cour."
 
         VisibleCache("btnChoix","btnSuite");
         BtnValeur("btnChoix1","Laisser le roi face à Corvus");
@@ -139,7 +132,7 @@ function MonHistoire()
 
         case 11:
         
-        Texte = "Le vagabon découronna le rois et pris sa place, la fête de couronement auras lieu dans 2 jours.";        
+        Texte = "Le Cortvus découronna le rois et pris sa place, la fête de couronement auras lieu dans 2 jours.";        
         break;
 
         case 12:
@@ -153,7 +146,7 @@ function MonHistoire()
             Heros.defense += 1;
             interfaceHeros();
             VisibleCache("btnSuite","btnChoix");
-            Suite = 15 ;
+            Suite = 15 ; // Racourcis jusqu'au case 15
         }
         else
         {
@@ -180,7 +173,7 @@ function MonHistoire()
                {
                     Texte = "Vous allez vous entrainer et gagner 1 point de défense. Nero vous y attendait et vous donne le livre de légende";
                     Livre_Legendaire = true;
-                    Suite = 15;
+                    Suite = 15; // Racourcis jusqu'au case 15
                     VisibleCache("btnSuite","btnChoix");
                }
                else
@@ -201,7 +194,7 @@ function MonHistoire()
                 
                 Texte = "Nero vous arrête et vous donne le livre de légende"
                 Livre_Legendaire = true;
-                Suite = 15;
+                Suite = 15; // Racourcis jusqu'au case 15
             }
             else
             {
