@@ -2,10 +2,14 @@ function MonHistoire()
 {
     switch (Suite) 
     {
+        
         case 0:
             Texte = "Il y avait une fois un Roi, qui vivait dans un immense château avec sa fille unique."+ "<br>" +"Elle portait le nom d'Aenor, elle était une guerrière bigrement curieuse mais néanmoins trés doué au combat.";
             Suite= 35;
-            Final=false;
+            Final=false; 
+            Nero=3;
+            Suite= 35;
+           
         break;
 
         case 1:
@@ -13,13 +17,13 @@ function MonHistoire()
         break;
 
         case 2:
-            Texte = "L'histoire commence vous vous réveiller. Sans perdre un instant vous enfiler des jambieres, pris vos gantelets,  votre épée et décider de sortir de votre chambre";
+            Texte = "L'histoire commence vous vous réveiller. Sans perdre un instant vous enfiler des jambieres, pris vos gantelets, votre épée et décider de sortir de votre chambre";
         break;
 
         case 3:
             Texte = "Où voulez vous allez ?";
             VisibleCache("btnChoix","btnSuite");
-            BtnValeur("btnChoix1","Aller dans la cour");
+            BtnValeur("btnChoix1","Aller dans la ferme");
             BtnValeur("btnChoix2","Aller voir le Roi");
         break;
 
@@ -27,7 +31,7 @@ function MonHistoire()
             VisibleCache("btnSuite","btnChoix")
             if (choix == 1)
             {
-                Texte = "En allant dans la cour vous vous dirigez vers les cochons";
+                Texte = "En allant dans la ferme vous vous dirigez vers les cochons";
                 Cour = true;
             }
             if (choix == 2)
@@ -50,8 +54,8 @@ function MonHistoire()
             {
                 Texte = "Que voulez-vous faire ?";
                 VisibleCache("btnChoix","btnSuite");
-                BtnValeur("btnChoix1","Lui Parler du Vagabond");
-                BtnValeur("btnChoix2","Lui demander de vous raconter la légende");
+                BtnValeur("btnChoix1","Lui parler du Vagabond");
+                BtnValeur("btnChoix2","Lui demander de vous racontez la légende");
             }
 
         break;
@@ -68,7 +72,7 @@ function MonHistoire()
 
             if (choix == 2)
             {
-                Texte = "Vous gagnez 5 point de vie et Nero pars trés énerver"
+                Texte = "Vous gagnez 5 point de vie et Nero pars très énerver"
                 Nero=3;
                 Heros.hp += 5;
                 VieMax += 5
@@ -94,7 +98,7 @@ function MonHistoire()
 
         case 7:
         
-        Texte = "Quelque chose ce passe dans la cour, en vous y rendant de mystèrieux combattant vous attaque"
+        Texte = "Quelque chose ce passe dans la cour, en vous y rendant un mystèrieux combattant vous attaque"
         BtnValeur("btnSuite","Combattre");
         break;
 
@@ -155,8 +159,8 @@ function MonHistoire()
         {
         Texte="Où voulez vous allez ?";
         VisibleCache("btnChoix","btnSuite");
-        BtnValeur("btnChoix1","Aller dans la chambre de corvus");
-        BtnValeur("btnChoix2","Aller vous entrainer");
+        BtnValeur("btnChoix1","Allez dans la chambre de corvus");
+        BtnValeur("btnChoix2","Allez vous entrainer");
         }
         
         break;
@@ -164,7 +168,7 @@ function MonHistoire()
         case 13:
             if (choix == 1)
             {
-                   Texte = "Vous vous dirigez vers la chambre du Corvus, deux gardes vous interrompt... "
+                   Texte = "Vous vous dirigez vers la chambre du Corvus, vous voyez un garde au loin. "
                    VisibleCache("btnSuite","btnChoix");
 
             }
@@ -215,13 +219,13 @@ function MonHistoire()
             if (choix == 1)
             {
                 //affronter les gardes
-                Texte="Les gardes vous attaque";
+                Texte="Le garde vous attaque";
                 LancerCombat(Garde);
             }
             if(choix == 2){
                 // Fuir
                 VisibleCache("btnSuite","btnChoix");
-                Texte = "Vous décidez de fuir les deux soldats. En vous retournant vous voyez une ombre"
+                Texte = "Vous décidez de fuir le soldat. En vous retournant vous voyez une ombre"
 
                 choix = 2;
                 Suite-=6;     
@@ -293,7 +297,7 @@ function MonHistoire()
 
         if (Montagne == true)
         {
-            LancerCombat(Gargouille)
+            LancerCombat(Gargouille);
         }
 
         break;
@@ -533,6 +537,10 @@ function MonHistoire()
                 Texte = "Basket, basket se joint à la bataille !";
                 Explosion = true;
                 }
+                RemplaceImage("img_Ennemi","Img/JustNero.png");
+                RepositionLeft("img_Ennemi","-29.5%");
+                RepositionTop("img_Ennemi", "41%");
+                RepositionLeft("Ennemi","-29.5%");
                 VisibleCache("btnAttaque","btnSuite");
             }
 

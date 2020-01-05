@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>RPG Textuel</title>
+        <title>Aenor et la légendes des Dragons</title>
         <script src="Script.js"></script>
         <script src="Histoire.js"></script>
         <link rel="stylesheet" href="Styles.css">
@@ -11,34 +11,43 @@
 
     <Body>
         <div class="box" style="position: absolute; ">
+
+<!-- Div de rédaction de l'histoire -->
             <div style="width: 50%;height:30%; border:1px  solid black; background-image:url('Img/Parchemin.jpg');background-size:100% 100%;">  
                 <p id="Histoire" style="font-family: URW Chancery L, cursive; font-style: italic;" >Bienvenue dans l'histoire d'Aenor et la légende des dragons</p>
-                
-                
+<!-- Div de rédaction de l'histoire -->
 
-                <form>
+
+<!-- Bouton qui passe l'histoire -->
+                </form>
                     <input id="btnSuite" onclick="MonHistoire();" type="button" value="Continuer">
-                </form> 
+                </form>
+<!-- Bouton qui passe l'histoire -->
 
+
+<!-- Bouton qui permet de recommencer -->
                 <form style="visibility:hidden">
                     <input id="btnReco" onclick="Recommencer();" type="button" value="Recommencer">
                 </form>
+<!-- Bouton qui permet de recommencer -->
 
+
+<!-- Bouton qui passe l'histoire avec le choix indiqué -->
                 <form id="btnChoix" style="visibility:hidden">
                     <input id="btnChoix1" onclick="choix=1;MonHistoire();" type="button" value="Choisir">
                     <input id="btnChoix2" onclick="choix=2;MonHistoire();" type="button" value="Choisir">
                 </form>
             </div>
-            
-            <div class="Background_fight"style="width: 50%; height:69.35%;  border:1px  solid black;" > 
-               
-                <div class="box_fight">
-                    <!-- <div class="Image_fight">
-                        {
-                            <img src="Img/Barbarus.png" style="width:100%; height:100%">
+<!-- Bouton qui passe l'histoire avec le choix indiqué -->
 
-                        }
-                    </div> -->
+
+<!-- Div de fond pour les combats -->
+            <div class="Background_fight"style="width: 50%; height:69.35%;  border:1px  solid black;" > 
+                <div class="box_fight">
+<!-- Div de fond pour les combats -->
+
+
+<!-- Interface du personnage Héroïne -->
                     <div class="Affrontement">
                         <p id="Heros">
                                 <img id="img_Aenor"src="Img/Aenor.png" style="position: absolute; left:-21%; top:1%;">
@@ -54,6 +63,10 @@
                             </div>
                             </p>
                     </div>
+<!-- Interface du personnage Héroïne -->
+
+
+<!-- Interface du personnage Ennemi -->
                     <div style="visibility:hidden" class="Affrontement" id="Ennemi" >
                             <p>
                                 <img id="img_Ennemi"src="Img/Guerrier.png" style="position: absolute; left:-22%; top:38%; z-index: 2; ">
@@ -70,7 +83,11 @@
                                     </div>
                                 </div>    
                             </p>
-                    </div> 
+                    </div>
+<!-- Interface du personnage Ennemi -->
+
+
+<!-- Interface du personnage Allié -->
                     <div style="visibility:hidden" class="Affrontement" style="left:15%; " id="Allie">    
                         <p>
                                 <img id="img_Allie"src="Img/Grizius.png" style="position: absolute; left:10%;">
@@ -88,7 +105,10 @@
                             </div>
                         </p>
                     </div>
+<!-- Interface du personnage Allié -->
 
+
+<!-- Interface du personnage Basket -->
                     <div style="visibility:hidden" class="Affrontement" style="left:15%; " id="Basket">    
                         <p>
                                 <img id="img_Basket"src="Img/Basket.png" style="position: absolute; left:23%; top:45%;">
@@ -106,22 +126,28 @@
                             </div>
                         </p>
                     </div>
-                     
+<!-- Interface du personnage Basket -->
                 </div>
-            
              </div>
+
+<!-- Div d'illustration de l'histoire -->
             <div style=" width: 49.77%; height:99.78%; border:1px  solid black;"> 
                 <img src="Img/Chateau.jpg" style="height:100%; width:100%;" >
             </div>
-         </div>  
+<!-- Div d'illustration de l'histoire -->
+        </div>
+
+<!-- Bouton qui permet d'attaquer -->
             <form id="btnAttaque" style="visibility:hidden">
                     <input  onclick="Attaque();" type="button" value="Attaquer">
             </form>
-        
+<!-- Bouton qui permet d'attaquer -->
+
     </Body>
 
     <Script>
 
+    // Lancement des interfaces dans l'HTML afin de rendre les chiffes dynamique
         interfaceHeros();
         interfaceAllie();
         interfaceEnnemi();
