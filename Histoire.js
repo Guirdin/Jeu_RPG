@@ -5,7 +5,6 @@ function MonHistoire()
         case 0:
             Texte = "Il y avait une fois un Roi, qui vivait dans un immense château avec sa fille unique."+ "<br>" +"Elle portait le nom d'Aenor, elle était une guerrière bigrement curieuse mais néanmoins trés doué au combat.";
             Final=false;
-            Suite=32;
         break;
 
         case 1:
